@@ -7,25 +7,35 @@ import {
     Button
 } from 'react-native';
 
+// import { ApolloClient } from 'apollo-client';
+// import { HttpLink } from 'apollo-link-http';
+// import { InMemoryCache } from 'apollo-cache-inmemory';
+// import { ApolloProvider } from 'react-apollo';
+// import { ApolloClient, InMemoryCache, HttpLink } from 'apollo-client-preset';
+
 import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { StackNavigator, addNavigationHelpers } from 'react-navigation';
 
 import routes from './routes';
-
 import createReducers from './redux/reducers';
 
 const Navigation = StackNavigator(routes);
 
 const reducers = createReducers(Navigation);
-
-// Store
 const store = createStore(reducers);
+
 store.subscribe(()=>{
     console.log('A new action was dispatched', store.getState());
 });
 
-// Redux helpers
+// const apollo_client = new ApolloClient({
+//   // By default, this client will send queries to the
+//   //  `/graphql` endpoint on the same host
+//   link: new HttpLink({uri: 'http://192.168.1.105:8080/graphql'}),
+//   cache: new InMemoryCache()
+// });
+
 function mapStateToProps(state) {
     return {
         nav: state.nav

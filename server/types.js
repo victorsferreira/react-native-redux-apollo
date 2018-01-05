@@ -10,6 +10,7 @@ type Employee{
 
 type Query{
     employees: [Employee!]!
+    employee(name: String): Employee
 }
 
 type Mutation{

@@ -4,8 +4,10 @@ import Create from './scenes/Create';
 import Employee from './scenes/Employee';
 
 // Routes
-export default routes = {
+const routes = {
     List: { screen: List },
     Create: { screen: Create },
     Employee: { screen: Employee }
 };
+
+export default routes;

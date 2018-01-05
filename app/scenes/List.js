@@ -31,7 +31,7 @@ class List extends Component<{}> {
             this.props.dispatch(Actions.getEmployees(result.data.data.employees));
         })
         .catch((err)=>{
-            console.log('result', result)
+            console.log('err', err)
         })
     }
 

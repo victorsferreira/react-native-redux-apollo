@@ -5,6 +5,9 @@ module.exports = {
     Query: {
         employees: function(parent, args, context){
             return context.Employee.find({}).exec();
+        },
+        employee: function(parent, args, context){
+            return context.Employee.findOne(args).exec();
         }
     },
     Mutation: {
