@@ -6,7 +6,8 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
     "emulator": "emulator -avd ReactNative",
-    "android": "react-native run-android"
+    "android": "react-native run-android",
+    "options": "adb shell input keyevent 82"
   },
   "dependencies": {
     "apollo-client-preset": "^1.0.5",

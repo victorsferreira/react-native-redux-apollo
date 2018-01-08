@@ -21,8 +21,12 @@ import Server from '../libs/server';
 import EmployeeItem from '../components/EmployeeItem';
 
 class List extends Component<{}> {
+    // static navigationOptions = {
+    //     title: 'Todos os funcionários'
+    // };
+
     static navigationOptions = {
-        title: 'Todos os funcionários'
+        drawerLabel: 'list'
     };
 
     componentDidMount(){
@@ -39,31 +43,32 @@ class List extends Component<{}> {
         return (
             <View style={styles.container}>
                 <TouchableHighlight onPress={()=>{
-                        this.props.navigation.navigate('Create');
+                        this.props.navigation.navigate('About');
                     }}>
-                    <Text>Adicionar funcionário</Text>
+                    <Text>Sobre</Text>
                 </TouchableHighlight>
-                <FlatList
-                    data={this.props.app.employees}
-                    renderItem={({item}) => <EmployeeItem {...item} navigation={this.props.navigation} />}
-                    keyExtractor={(item, index) => index}
-                    />
-            </View>
-        );
-    }
-}
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF'
-    },
-});
+                        <FlatList
+                            data={this.props.app.employees}
+                            renderItem={({item}) => <EmployeeItem {...item} navigation={this.props.navigation} />}
+                            keyExtractor={(item, index) => index}
+                            />
+                    </View>
+                );
+            }
+        }
 
-function mapStateToProps(state) {
-    return state;
-}
+        const styles = StyleSheet.create({
+            container: {
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: '#F5FCFF'
+            },
+        });
 
-export default connect(mapStateToProps)(List);
+        function mapStateToProps(state) {
+            return state;
+        }
+
+        export default connect(mapStateToProps)(List);

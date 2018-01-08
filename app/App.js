@@ -15,12 +15,10 @@ import {
 
 import { Provider, connect } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
-import { StackNavigator, addNavigationHelpers } from 'react-navigation';
+import { addNavigationHelpers } from 'react-navigation';
 
-import routes from './routes';
+import Navigation from './routes';
 import createReducers from './redux/reducers';
-
-const Navigation = StackNavigator(routes);
 
 const reducers = createReducers(Navigation);
 const store = createStore(reducers);

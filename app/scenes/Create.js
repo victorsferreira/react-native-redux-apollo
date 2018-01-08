@@ -15,8 +15,12 @@ import * as Actions from '../redux/actions'
 import Server from '../libs/server';
 
 class Create extends Component<{}> {
+    // static navigationOptions = {
+    //     title: 'Criar novo funcionário'
+    // };
+
     static navigationOptions = {
-        title: 'Criar novo funcionário'
+        drawerLabel: 'create'
     };
 
     constructor(){
