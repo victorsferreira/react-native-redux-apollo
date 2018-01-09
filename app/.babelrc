@@ -4,5 +4,12 @@
         "development": {
             "plugins": ["transform-es2015-modules-commonjs"]
         }
-    }
+    },
+    "plugins": [
+        [
+            "transform-strict-mode", {
+                "strict": false
+            }
+        ]
+    ]
 }

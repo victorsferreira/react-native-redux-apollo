@@ -15,13 +15,7 @@ class Server{
         }
         `;
 
-        return axios({
-            method: 'GET',
-            url: Server.URL,
-            params: {
-                query: query
-            }
-        });
+        return Server.get(query);
     }
 
     static createEmployee(name, company_id, phone){
@@ -32,14 +26,7 @@ class Server{
         }
         `;
 
-        return axios({
-            method: 'POST',
-            url: Server.URL,
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: payload
-        });
+        return Server.post(payload);
     }
 
     static deleteEmployee(company_id){
@@ -50,6 +37,10 @@ class Server{
         }
         `;
 
+        return Server.post(payload);
+    }
+
+    static post(payload){
         return axios({
             method: 'POST',
             url: Server.URL,
@@ -57,7 +48,21 @@ class Server{
                 'Content-Type': 'application/json'
             },
             data: payload
-        });
+        }).catch(Server.error);
+    }
+
+    static get(query){
+        return axios({
+            method: 'GET',
+            url: Server.URL,
+            params: {
+                query: query
+            }
+        }).catch(Server.error);
+    }
+
+    static error(e){
+        console.log('Default error',e);
     }
 
 }

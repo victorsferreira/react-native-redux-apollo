@@ -13,12 +13,6 @@ import {
 
 import { StackNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
 
-// const routes = {
-//     List: { screen: List },
-//     Create: { screen: Create },
-//     Employee: { screen: Employee }
-// };
-
 const MainNavigator = DrawerNavigator({
     List: { screen: List },
     Create: { screen: Create },
@@ -49,7 +43,7 @@ const routes = {
     About: {
         screen: About,
         navigationOptions: ({navigation}) => ({
-            //esconde o header dessa cena
+            //muda o header dessa cena
             header: (
                 <View>
                     <Text>Header do Sobre</Text>

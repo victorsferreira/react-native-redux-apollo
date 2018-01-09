@@ -6,6 +6,10 @@ var initial_state = {
 
 export default function(state=initial_state, action){
     switch(action.type){
+        case Actions.SET_EMPLOYEES: {
+            console.log('SET_EMPLOYEES', action.payload.employees);
+            return Object.assign({}, state, {employees: action.payload.employees});
+        }
         case Actions.GET_EMPLOYEES: {
             return Object.assign({}, state, {employees: action.payload.employees});
         }

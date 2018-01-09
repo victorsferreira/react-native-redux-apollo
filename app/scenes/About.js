@@ -9,7 +9,7 @@ import {
 class About extends Component<{}> {
     static navigationOptions = (data)=>{
         return {
-            // title: 'Sobre'
+            title: data.navigation.state.params.message
         };
     }
 

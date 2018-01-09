@@ -30,20 +30,17 @@ class List extends Component<{}> {
     };
 
     componentDidMount(){
-        Server.getEmployees()
-        .then((result)=>{
-            this.props.dispatch(Actions.getEmployees(result.data.data.employees));
-        })
+        this.props.dispatch(Actions.getEmployeesAsync())
         .catch((err)=>{
-            console.log('err', err)
-        })
+            console.log('getEmployeesAsync error', err);
+        });
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <TouchableHighlight onPress={()=>{
-                        this.props.navigation.navigate('About');
+                        this.props.navigation.navigate('About', { message: 'This is the about page '});
                     }}>
                     <Text>Sobre</Text>
                 </TouchableHighlight>

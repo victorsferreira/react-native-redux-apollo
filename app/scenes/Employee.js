@@ -14,15 +14,11 @@ import * as Actions from '../redux/actions'
 import Server from '../libs/server';
 
 class Employee extends Component<{}> {
-    // static navigationOptions = (data)=>{
-    //     return {
-    //         title: data.navigation.state.params.name
-    //     };;
-    // }
-
-    static navigationOptions = {
-        drawerLabel: ()=>{
-            return null;
+    static navigationOptions = (data) =>{
+        return {
+            drawerLabel: ()=>{
+                return null;
+            }
         }
     };
 
