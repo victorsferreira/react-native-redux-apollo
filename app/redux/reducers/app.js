@@ -1,7 +1,8 @@
 import Actions from '../actions';
 
 var initial_state = {
-    employees: []
+    employees: [],
+    teams: []
 };
 
 export default function(state=initial_state, action){

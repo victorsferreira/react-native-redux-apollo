@@ -24,10 +24,24 @@ app.get('/graphql/execute', function(req, res){
 
 app.use('/graphql', bodyParser.json(), graphqlExpress({
     schema: schema,
-    context: context
+    context: context,
+    formatError: function(err){
+        return err;
+    }
 }));
 
 app.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+
+app.all('*', function(req, res, next){
+    var error = new Error('Nothing to do here');
+    error.status = 404;
+    next(error);
+});
+
+app.use(function(err, req, res, next){
+    console.log('Error middleware', err);
+    res.status(err.status || 500).send(err.message);
+});
 
 app.listen(config.port);
 
